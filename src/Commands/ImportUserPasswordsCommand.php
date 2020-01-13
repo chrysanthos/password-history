@@ -2,14 +2,12 @@
 
 namespace Chrysanthos\PasswordHistory\Commands;
 
-use App\User;
 use Chrysanthos\PasswordHistory\PasswordHistoryLogger;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
 
 class ImportUserPasswordsCommand extends Command
 {
-
     protected $signature = 'password-history:import';
 
     protected $description = 'Imports the current user passwords into history';
@@ -29,7 +27,7 @@ class ImportUserPasswordsCommand extends Command
                        return [
                            'user_id'    => $user_id,
                            'password'   => $password,
-                           'created_at' => now()
+                           'created_at' => now(),
                        ];
                    }, array_keys($passwords), $passwords)
                );
@@ -38,10 +36,9 @@ class ImportUserPasswordsCommand extends Command
         $message = $count > 0 ? "{$count} new passwords have been imported!" : 'No new passwords have been imported..';
 
         $this->info($message);
-
     }
 
-    public function getImportablePasswords($userChunk) : array
+    public function getImportablePasswords($userChunk): array
     {
         $passwords = Arr::pluck($userChunk, 'password', 'id');
 
