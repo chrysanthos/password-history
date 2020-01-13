@@ -1,11 +1,11 @@
-# Authentication logger for Laravel
+# Password history for Laravel 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/Chrysanthos/password-history.svg?style=flat-square)](https://packagist.org/packages/chrysanthos/password-history)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/chrysanthos/password-history/run-tests?label=tests)](https://github.com/chrysanthos/password-history/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Quality Score](https://img.shields.io/scrutinizer/g/chrysanthos/password-history.svg?style=flat-square)](https://scrutinizer-ci.com/g/chrysanthos/password-history)
 [![Total Downloads](https://img.shields.io/packagist/dt/chrysanthos/password-history.svg?style=flat-square)](https://packagist.org/packages/chrysanthos/password-history)
 
-The Laravel package logs failed attempts to login. It stores the credentials used along with the user ip and user agent in a table where you can later check. A Nova tool will be provided soon. 
+The Laravel package maintains user password history so that you can prevent users to change their password to one they used in the past. 
 
 ## Installation
 
@@ -19,12 +19,39 @@ composer require chrysanthos/password-history
 
 The package service provider is registered automatically and a migration is provided to be run. 
 
-The only thing you need to do is run your migrations by running
-
+Run your migrations
 ``` bash
 php artisan migrate
 ```
 
+In your `App\Http\Controllers\Auth\ResetPasswordController` override Laravel's default `rules` method with the following
+```php
+    use Chrysanthos\PasswordHistory\Rules\NoOldPasswords;
+
+    /**
+     * Get the password reset validation rules.
+     *
+     * @return array
+     */
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => [
+                'required', 'confirmed', 'min:8',
+                new NoOldPasswords(User::whereEmail(request('email'))->first()->id, request('password'))
+            ],
+        ];
+    }
+```
+
+Note: In case you changed the default Laravel auth `ResetPasswordController` you will need to dispatch the `PasswordReset` event that Laravel includes out of the box.
+```php
+    use Illuminate\Auth\Events\PasswordReset;
+
+    event(new PasswordReset($user));
+```
 ### Testing
 
 ``` bash
