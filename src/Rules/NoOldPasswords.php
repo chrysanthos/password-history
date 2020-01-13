@@ -26,7 +26,7 @@ class NoOldPasswords implements Rule
      */
     public function __construct(int $user_id, string $attemptedPassword)
     {
-        $this->user_id           = $user_id;
+        $this->user_id = $user_id;
         $this->attemptedPassword = $attemptedPassword;
     }
 

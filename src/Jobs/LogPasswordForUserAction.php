@@ -28,7 +28,7 @@ class LogPasswordForUserAction implements ShouldQueue
      */
     public function __construct(int $user_id, string $password)
     {
-        $this->user_id  = $user_id;
+        $this->user_id = $user_id;
         $this->password = $password;
     }
 

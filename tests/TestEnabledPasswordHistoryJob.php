@@ -10,7 +10,7 @@ use Orchestra\Testbench\TestCase;
 
 class TestEnabledPasswordHistoryJob extends TestCase
 {
-    protected function getEnvironmentSetUp($app) : void
+    protected function getEnvironmentSetUp($app): void
     {
         parent::getEnvironmentSetUp($app);
 
@@ -35,11 +35,11 @@ class TestEnabledPasswordHistoryJob extends TestCase
         return User::create([
             'name'     => 'Chrysanthos',
             'email'    => 'first@chrysanthos.dev',
-            'password' => Hash::make('password')
+            'password' => Hash::make('password'),
         ]);
     }
 
-    protected function migrate() : void
+    protected function migrate(): void
     {
         $this->loadLaravelMigrations();
         $this->artisan('migrate')->run();

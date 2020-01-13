@@ -7,12 +7,12 @@ return [
     'tables' => [
         'users'            => [
             'name'       => 'users',
-            'connection' => null
+            'connection' => null,
         ],
         'password-history' => [
             'name'       => 'password_history',
-            'connection' => null
-        ]
-    ]
+            'connection' => null,
+        ],
+    ],
 
 ];

@@ -31,7 +31,6 @@ class PasswordHistoryServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([ImportUserPasswordsCommand::class]);
         }
-
     }
 
     /**

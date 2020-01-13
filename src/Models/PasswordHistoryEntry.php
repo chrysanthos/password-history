@@ -19,5 +19,4 @@ class PasswordHistoryEntry extends Eloquent
 
         parent::__construct($attributes);
     }
-
 }
