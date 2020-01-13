@@ -22,10 +22,10 @@ class PasswordHistoryServiceProvider extends ServiceProvider
             );
         }
 
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
         $this->publishes([
-            __DIR__ . '/../config/password-history.php' => config_path('password-history.php'),
+            __DIR__.'/../config/password-history.php' => config_path('password-history.php'),
         ], 'config');
 
         if ($this->app->runningInConsole()) {
@@ -39,6 +39,6 @@ class PasswordHistoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/password-history.php', 'password-history');
+        $this->mergeConfigFrom(__DIR__.'/../config/password-history.php', 'password-history');
     }
 }
