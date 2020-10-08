@@ -40,7 +40,7 @@ In your `App\Http\Controllers\Auth\ResetPasswordController` override Laravel's d
             'email' => 'required|email',
             'password' => [
                 'required', 'confirmed', 'min:8',
-                new NoOldPasswords(User::whereEmail(request('email'))->first()->id, request('password'))
+                new NoOldPasswords($user->id, request('password'))
             ],
         ];
     }
