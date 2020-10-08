@@ -5,7 +5,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/chrysanthos/password-history.svg?style=flat-square)](https://scrutinizer-ci.com/g/chrysanthos/password-history)
 [![Total Downloads](https://img.shields.io/packagist/dt/chrysanthos/password-history.svg?style=flat-square)](https://packagist.org/packages/chrysanthos/password-history)
 
-The Laravel package maintains user password history so that you can prevent users to change their password to one they used in the past. 
+The Laravel package maintains encrypted user password history so that you can prevent users from using a previously used password.
 
 ## Installation
 
