@@ -17,11 +17,9 @@ class CreatePasswordHistoryTable extends Migration
             static function (Blueprint $table) {
                 $table->bigIncrements('id');
 
-                $table->unsignedInteger('user_id');
-                $table->foreign('user_id')
-                      ->references('id')
-                      ->on(config('password-history.tables.users.name', 'users'))
-                      ->onDelete('cascade');
+                $table->foreignId('user_id')
+                      ->constrained(config('password-history.tables.users.name', 'users'))
+                      ->cascadeOnDelete();
 
                 $table->string('password');
 
