@@ -1,8 +1,7 @@
 # Password history for Laravel 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/Chrysanthos/password-history.svg?style=flat-square)](https://packagist.org/packages/chrysanthos/password-history)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/chrysanthos/password-history/run-tests?label=tests)](https://github.com/chrysanthos/password-history/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Quality Score](https://img.shields.io/scrutinizer/g/chrysanthos/password-history.svg?style=flat-square)](https://scrutinizer-ci.com/g/chrysanthos/password-history)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/chrysanthos/password-history/run-tests.yml?branch=master&label=tests)](https://github.com/chrysanthos/password-history/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/chrysanthos/password-history.svg?style=flat-square)](https://packagist.org/packages/chrysanthos/password-history)
 
 The Laravel package maintains encrypted user password history so that you can prevent users from using a previously used password.
