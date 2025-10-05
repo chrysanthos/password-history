@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class TestUser extends Model
 {
     protected $guarded = [];
 }
@@ -37,7 +37,7 @@ class TestEnabledPasswordHistoryJob extends TestCase
 
     protected function getUser()
     {
-        return User::create([
+        return TestUser::create([
             'name'     => 'Chrysanthos',
             'email'    => 'first@chrysanthos.dev',
             'password' => Hash::make('password'),
