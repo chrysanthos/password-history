@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Hash;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Database\Eloquent\Model;
 
+class User extends Model
+{
+    protected $guarded = [];
+}
+
 class TestDisabledPasswordHistoryJob extends TestCase
 {
     protected function getEnvironmentSetUp($app): void
@@ -48,9 +53,4 @@ class TestDisabledPasswordHistoryJob extends TestCase
     {
         return [PasswordHistoryServiceProvider::class];
     }
-}
-
-class User extends Model
-{
-    protected $guarded = [];
 }
