@@ -3,10 +3,15 @@
 namespace Chrysanthos\PasswordHistory\Tests;
 
 use Chrysanthos\PasswordHistory\PasswordHistoryServiceProvider;
-use Chrysanthos\PasswordHistory\Tests\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Orchestra\Testbench\TestCase;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    protected $guarded = [];
+}
 
 class TestDisabledPasswordHistoryJob extends TestCase
 {
